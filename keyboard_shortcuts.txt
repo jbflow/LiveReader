@@ -1,0 +1,39 @@
+Session Mode:
+
+Navigation - Arrow keys
+Rename - CMD + R
+Mute selected track - comma key
+Solo selected track - period key
+arm selected track - forward slash key
+
+
+Mixer Mode:
+Next/previous parameter - Option + left/right arrows
+Increament/Decreament parameter - Option + up/down arrows
+
+Routing mode:
+Next/previous rounting menu - Option + up/down arrows
+Change routing menu option - Option + left/right arrows
+
+Device mode:
+Navigation - Arrow keys
+Search - Option + Alpha Character keys
+
+Browser Mode:
+Navigation - Option + arrow keys
+Loading - Right Shift Key
+Search - Option + Alpha Character keys
+
+Parameter Mode -
+Next/previous parameter - Option left/right arrows
+increament/decreament parameter - Option + up/down arrows
+
+MIDI Clip editing mode - 
+
+Navigation - Arrow keys
+Select notes, next/previous note - Option + Arrows
+Deselet and reset - Option + Apostrophe
+Insert/Remove notes - MIDI input + arrow keys
+Quantization increament/decreament - Square brackets
+Loop on/off - semi-colon
+Change loop length - Apostrophe/Backslash
