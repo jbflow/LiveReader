@@ -1,13 +1,17 @@
 """This script just takes text and speaks it out load, the kill process function is used to interupt. Copyright (c)
 2020, Josh Ball of Flowstate Creative Solutions"""
 
-import accessible_output2.outputs.auto
-speech = accessible_output2.outputs.auto.Auto()
-
-def speak_text(TEXT):
-    speech.speak(TEXT, interrupt=True)
+import subprocess
 
 
+class Speak:
+    def __init__(self):
+        self.process = None
+
+    def speak_text(self, TEXT):
+        self.process = subprocess.Popen(["say", f"\"{TEXT}\"", "-r", "300", "-v", "Daniel"])
 
 
-
+    def kill_process(self):
+        if self.process:
+            self.process.kill()

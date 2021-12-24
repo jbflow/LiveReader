@@ -6,6 +6,7 @@ import speak_text
 import active_window
 from StoreKeys import keys_pressed
 import keys_to_midi
+from speak_text import Speak
 
 midi_out = rtmidi.MidiOut()
 midi_in = rtmidi.MidiIn()
@@ -14,6 +15,8 @@ midi_in.ignore_types(sysex=False)
 push_in = rtmidi.MidiIn()
 push_in.ignore_types(sysex=False)
 
+speech = Speak()
+
 def _parse_midi(*midi):
     for m in midi:
         if m and m[0][0] == 240:
@@ -21,7 +24,8 @@ def _parse_midi(*midi):
             text = ''.join([chr(o) for o in sysex[1:-1]])
             if text:
                 print(text)
-                speak_text.speak_text(text)
+                speech.kill_process()
+                speech.speak_text(text)
 
 
 def _forward_presses(pressed_keys):
