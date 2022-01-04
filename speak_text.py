@@ -9,7 +9,7 @@ class Speak:
         self.process = None
 
     def speak_text(self, TEXT):
-        self.process = subprocess.Popen(["say", f"\"{TEXT}\"", "-r", "300", "-v", "Daniel"])
+        self.process = subprocess.Popen(["say", f"\"[[volm 0.1]] {TEXT}\"", "-r", "300", "-v", "Daniel"])
 
 
     def kill_process(self):

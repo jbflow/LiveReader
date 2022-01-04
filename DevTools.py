@@ -5,7 +5,7 @@ from distutils.dir_util import copy_tree
 from pathlib import Path
 
 def read_log():
-    path = '/Users/josh/Library/Preferences/Ableton/Live 10.1.17/log.txt'
+    path = '/Users/josh/Library/Preferences/Ableton/Live 11.0.12/log.txt'
     with open(path, 'r') as f:
         while True:
             line = f.readline()
@@ -19,3 +19,6 @@ def automated_copy():
     script = '{0}/LiveReader'.format(dir)
     # overwrite the script
     copy_tree('LiveReader', script)
+
+
+read_log()
