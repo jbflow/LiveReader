@@ -1,14 +1,14 @@
 import Live
 from _Framework.ControlSurface import ControlSurface
-from .TransportActions import TransportActions
-from .SessionActions import SessionActions
-from .BrowserActions import BrowserActions
-from .DeviceActions import DeviceActions
-from .ClipActions import ClipActions
-from .key_consts import *
-from .PushMonitoring import PushMonitoring
 from ableton.v2.base import nop
-import json
+
+from .BrowserActions import BrowserActions
+from .ClipActions import ClipActions
+from .DeviceActions import DeviceActions
+from .PushMonitoring.PushMonitoring2 import PushMonitoring
+from .SessionActions import SessionActions
+from .TransportActions import TransportActions
+from .key_consts import *
 
 
 class LiveReader(ControlSurface):
@@ -18,11 +18,13 @@ class LiveReader(ControlSurface):
         self._suggested_input_port = str(u'Live Reader IN (feedback)')
         self._suggested_output_port = str(u'Live Reader OUT (commands)')
         with self.component_guard():
-            self._transport = TransportActions()
+            self._transport = TransportActions(c_instance)
             self._session = SessionActions(c_instance)
             self._browser = BrowserActions(c_instance)
             self._device = DeviceActions(c_instance)
-            self._clip = ClipActions(c_instance)
+            self._clip = ClipActions(log_message = self.log_message, send_midi=self.send_midi, register_component=nop, song=self.song())
+            self.push = PushMonitoring(log_message=self.log_message, send_midi=self.send_midi, register_component=nop,
+                                       song=self.song())
             
 
         self.global_buttons = {
@@ -32,7 +34,7 @@ class LiveReader(ControlSurface):
             FOUR_KEY: self.set_device_mode,
             FIVE_KEY: self.set_parameter_mode,
             SIX_KEY: self.set_browser_mode,
-            SEVEN_KEY: self.set_clip_mode,
+            # SEVEN_KEY: self.set_clip_mode,
             ALT_THREE: self._transport.click_button,
             ALT_FOUR: self._transport.overdub_button,
             ALT_FIVE: self._transport.record_button,
@@ -46,19 +48,24 @@ class LiveReader(ControlSurface):
         self.modes = {'Session': self._session.get_action,
                       'Browser': self._browser.get_action,
                       'Device': self._device.get_action,
-                      'Clip': self._clip.get_action
                       }
 
         self.view = self.application().view
         self.current_mode = 'Session'
         self.send_midi('Script initialised')
-        self.push = PushMonitoring(log_message = self.log_message, send_midi=self.send_midi, register_component=nop, song=nop)
+
         self.push.get_push_instance()
+
         
 
 
     def disconnect(self):
-        ControlSurface.disconnect(self)
+        self._transport = None
+        self._session = None
+        self._browser = None
+        self._device =  None
+        self._clip = None
+        super(LiveReader, self).disconnect()
 
 
 
@@ -66,7 +73,7 @@ class LiveReader(ControlSurface):
         self.log_message(midi_bytes)
         if midi_bytes == (240, 0, 33, 29, 1, 1, 10, 0, 247):
             self.push.get_push_instance()
-            return 
+            return
         if midi_bytes[0] == 240:
             midi_bytes = midi_bytes[1:-1]
             try:
@@ -121,15 +128,15 @@ class LiveReader(ControlSurface):
         self._session.set_sub_mode('Mixer')
         return 'Mixer mode'
 
-    def set_clip_mode(self):
-
-        if self._clip.get_highlighted_clip():
-            self.application().view.show_view('Detail')
-            self.application().view.focus_view('Detail/Clip')
-            self.current_mode = 'Clip'
-            return 'Clip editing mode'
-        else:
-            return 'No clip selected'
+    # def set_clip_mode(self):
+    #
+    #     if self._clip.get_highlighted_clip():
+    #         self.application().view.show_view('Detail')
+    #         self.application().view.focus_view('Detail/Clip')
+    #         self.current_mode = 'Clip'
+    #         return 'Clip editing mode'
+    #     else:
+    #         return 'No clip selected'
 
     def add_audio_track(self):
         pass

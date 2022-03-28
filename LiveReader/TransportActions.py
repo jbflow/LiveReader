@@ -2,10 +2,9 @@ from _Framework.ControlSurfaceComponent import ControlSurfaceComponent
 
 
 class TransportActions(ControlSurfaceComponent):
-    __module__ = __name__
-
-    def __init__(self):
-        ControlSurfaceComponent.__init__(self)
+    def __init__(self, c_instance):
+        ControlSurfaceComponent.__init__(self, c_instance)
+        self._c_instance = c_instance
         self.song().add_is_playing_listener(self.start_or_stop)
 
     def disconnect(self):

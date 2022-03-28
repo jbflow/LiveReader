@@ -36,10 +36,6 @@ class DeviceActions(ControlSurfaceComponent):
             SQR_BRACKET_OPEN: self.prev_chain
         }
 
-
-    def log(self, msg):
-        self._c_instance.log_message(str(msg))
-
     def get_action(self, midi_bytes):
         if midi_bytes not in self.actions.keys():
             feedback = self.sub_modes[self.sub_mode](midi_bytes)

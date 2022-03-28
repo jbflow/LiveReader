@@ -38,7 +38,28 @@ NOTES = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"]
 ATTR = {0: 'pitch',
         1: 'position',
         2: 'length',
-        3: 'velocity',
-        4: 'mute state'}
+        3: 'mute',
+        4: 'probability',
+        5: 'release_velocity',
+        6: 'velocity',
+        7: 'velocity_range'}
 
 ROOT_NOTES = ["C", "G", "D", "A", "E", "B", "F", "B flat", "E flat", "A flat", "D flat", "G flat"]
+
+MODE_MESSAGES = {
+    "browse": "Browser mode, use arrows to navigate, toggle preview with top button 2",
+    "clip": "Clip editing mode",
+    "add_track": "Browser in adding track mode",
+    "add_device": "Browser in adding device mode",
+
+}
+
+
+
+
+
+
+
+
+
+

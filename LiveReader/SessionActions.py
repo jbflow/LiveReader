@@ -51,6 +51,11 @@ class SessionActions(ControlSurfaceComponent):
                         # (0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0): self.selecting_left
                         }
 
+    def disconnect(self):
+        self._mixer = None
+        self._routing = None
+        super(SessionActions, self).disconnect()
+
 
     def log(self, msg):
         self._c_instance.log_message(str(msg))
