@@ -1,5 +1,4 @@
-""" Simplified version of the midi port handling, using virtual ports created here, rather than IAC, this completely
-removes the need for any kind of preferences. Copyright (c) 2020, Josh Ball of Flowstate Creative Solutions"""
+"""Creation of Virtual MIDI ports on MacOS using rtmidi package"""
 
 import rtmidi
 import speak_text

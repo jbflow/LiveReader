@@ -1,5 +1,5 @@
 """This class is used to store the currently pressed keys, and update any observers when this changes, callbacks can
-be registered and unregistered with the provided methods. Copyright (c) 2020, Josh Ball of Flowstate Creative Solutions."""
+be registered and unregistered with the provided methods."""
 
 
 class StoreKeys:

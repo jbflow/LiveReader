@@ -1,3 +1,5 @@
+"""A function for switching on prelisten to enable note editor functionality"""
+
 import gzip
 
 def turn_on_prelisten():

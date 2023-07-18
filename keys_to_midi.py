@@ -1,4 +1,4 @@
-"""Copyright (c) 2020, Josh Ball of Flowstate Creative Solutions."""
+"""A function for converting keyboard presses into a MIDI SysEx message."""
 
 import time
 import math

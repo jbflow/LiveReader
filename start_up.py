@@ -1,4 +1,4 @@
-"""Copyright (c) 2020, Josh Ball of Flowstate Creative Solutions"""
+"""A series of actions LiveReader takes on startup, for monitoring log file, registering key_press callbacks"""
 
 import os
 import time
@@ -21,7 +21,9 @@ livereader = '{0}/Library/Preferences/livereader/logs'.format(home)
 if not os.path.exists(livereader):
     os.makedirs(livereader)
 paths = sorted(Path(dir).iterdir(), key=os.path.getmtime)
-path = r'{0}/Log.txt'.format(''.join([str(p) for p in paths if '10.1.17' in str(p)])) # Need to find a better way of getting the most recent folder from this list
+
+# TODO: Find a better method of getting the most recent version of Live so manual update is not needed
+path = r'{0}/Log.txt'.format(''.join([str(p) for p in paths if '10.1.17' in str(p)]))
 start_up_successful = False
 
 # Used for displaying and navigating pop ups on start up, the first 3 words are used for the pop up to load the correct
@@ -53,7 +55,7 @@ def _log_exists():
 
 def _read_log_file():
     """This function reads the log file, it also contains a keypress forwarding callback function and registers it with
-    an instance of the StoreKeys Class if it detects a message box during load, and therfore the key presses need to be monitored. Once
+    an instance of the StoreKeys Class if it detects a message box during load, and therefore the key presses need to be monitored. Once
     load is complete, it updates the variable start_up_successful"""
 
     global path, start_up_successful, buttons

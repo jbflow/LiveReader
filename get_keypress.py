@@ -1,6 +1,5 @@
 """This script is used to get the currently pressed keys, it loads the keys_pressed object - this should always be an instance of StoreKeys Class. 
-it then updates its keys property with a list of currently pressed keys, in this way whenever a key is pressed, the registered observers are notified. 
-Copyright (c) 2020, Josh Ball of Flowstate Creative Solutions."""
+it then updates its keys property with a list of currently pressed keys, in this way whenever a key is pressed, the registered observers are notified."""
 
 from pynput import keyboard
 from StoreKeys import keys_pressed
