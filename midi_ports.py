@@ -48,16 +48,17 @@ def clean_up():
 
 
 def open():
-    midi_in.open_virtual_port('MIDI Remote Script')
-    midi_out.open_virtual_port('MIDI Remote Script')
+    midi_in.open_virtual_port('LiveReader')
+    midi_out.open_virtual_port('LiveReader')
     keys_pressed.register_callback(_forward_presses)
     midi_in.set_callback(_parse_midi)
     try:
         push_index = push_in.get_ports().index("Ableton Push 2 Live Port")
         push_in.open_port(push_index)
         push_in.set_callback(init_push)
-    except IndexError:
+    except (IndexError, ValueError):
         pass
+
 
 if __name__ == '__main__':
     open()

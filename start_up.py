@@ -1,4 +1,4 @@
-"""A series of actions MIDI Remote Script takes on startup, for monitoring log file, registering key_press callbacks"""
+"""A series of actions LiveReader takes on startup, for monitoring log file, registering key_press callbacks"""
 
 import os
 import time
