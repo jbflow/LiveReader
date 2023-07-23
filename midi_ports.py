@@ -1,7 +1,6 @@
 """Creation of Virtual MIDI ports on MacOS using rtmidi package"""
 
 import rtmidi
-import speak_text
 import active_window
 from StoreKeys import keys_pressed
 import keys_to_midi
@@ -22,7 +21,6 @@ def _parse_midi(*midi):
             sysex = m[0]
             text = ''.join([chr(o) for o in sysex[1:-1]])
             if text:
-                print(text)
                 speech.kill_process()
                 speech.speak_text(text)
 
