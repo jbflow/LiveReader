@@ -1,5 +1,6 @@
 # LiveReader
 
+[![Python 3.8](https://img.shields.io/badge/python-3.8-blue.svg)](https://www.python.org/downloads/release/python-360/)
 
 Livereader is an accessibility tool for Ableton Live. It aims to make Live and Push accessible to those with visual impairments. It does
 this via a custom desktop app, a MIDI remote script and a series of keyboard shortcuts. See [here](keyboard_shortcuts.txt) for a list of a keyboard shortcuts.
@@ -33,7 +34,7 @@ I will aim to put a full breakdown on how you can contribute here soon, but any 
 The bare minimum to get you set up for development is
 
 ```
-python3 -m venv .venv
+virtualenv -p=3.8 .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 python main.py
