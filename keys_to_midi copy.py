@@ -1,4 +1,4 @@
-"""Copyright (c) 2020, Josh Ball of Flowstate Creative Solutions."""
+"""A copy for changing sysex message to use bitmasking"""
 
 import time
 import math
