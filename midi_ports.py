@@ -1,8 +1,6 @@
-""" Simplified version of the midi port handling, using virtual ports created here, rather than IAC, this completely
-removes the need for any kind of preferences. Copyright (c) 2020, Josh Ball of Flowstate Creative Solutions"""
+"""Creation of Virtual MIDI ports on MacOS using rtmidi package"""
 
 import rtmidi
-import speak_text
 import active_window
 from StoreKeys import keys_pressed
 import keys_to_midi
@@ -23,7 +21,6 @@ def _parse_midi(*midi):
             sysex = m[0]
             text = ''.join([chr(o) for o in sysex[1:-1]])
             if text:
-                print(text)
                 speech.kill_process()
                 speech.speak_text(text)
 
@@ -57,8 +54,9 @@ def open():
         push_index = push_in.get_ports().index("Ableton Push 2 Live Port")
         push_in.open_port(push_index)
         push_in.set_callback(init_push)
-    except IndexError:
+    except (IndexError, ValueError):
         pass
+
 
 if __name__ == '__main__':
     open()

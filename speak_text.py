@@ -1,5 +1,4 @@
-"""This script just takes text and speaks it out load, the kill process function is used to interupt. Copyright (c)
-2020, Josh Ball of Flowstate Creative Solutions"""
+"""This script just takes text and speaks it out load, the kill process method is used to interupt text which is currently being spoken."""
 
 import subprocess
 
