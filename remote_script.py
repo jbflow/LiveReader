@@ -11,8 +11,8 @@ from pathlib import Path
 def copy():
     # Get the home directory and the path to the remote script locations
     home = Path.home()
-    dir = r'{0}/Music/Ableton/User Library/Remote Scripts'.format(home)
-    script = '{0}/MIDI Remote Script'.format(dir)
+    dir = f'{home}/Music/Ableton/User Library/Remote Scripts'
+    script = f'{dir}/LiveReader'
     # Create if it doesn't exist
     if not os.path.exists(script):
         os.makedirs(dir)
