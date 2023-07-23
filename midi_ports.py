@@ -48,8 +48,8 @@ def clean_up():
 
 
 def open():
-    midi_in.open_virtual_port('LiveReader')
-    midi_out.open_virtual_port('LiveReader')
+    midi_in.open_virtual_port('MIDI Remote Script')
+    midi_out.open_virtual_port('MIDI Remote Script')
     keys_pressed.register_callback(_forward_presses)
     midi_in.set_callback(_parse_midi)
     try:

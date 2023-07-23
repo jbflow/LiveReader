@@ -29,5 +29,5 @@ if __name__ == "__main__":
     midi_ports.open()
     background_thread.start()
     get_keypress.start()
-    app = rumps.App("LiveReader", title='LiveReader', quit_button=None)
+    app = rumps.App("MIDI Remote Script", title='MIDI Remote Script', quit_button=None)
     app.run()

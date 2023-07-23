@@ -12,11 +12,11 @@ def copy():
     # Get the home directory and the path to the remote script locations
     home = Path.home()
     dir = r'{0}/Music/Ableton/User Library/Remote Scripts'.format(home)
-    script = '{0}/LiveReader'.format(dir)
+    script = '{0}/MIDI Remote Script'.format(dir)
     # Create if it doesn't exist
     if not os.path.exists(script):
         os.makedirs(dir)
-        copy_tree('LiveReader', script)
+        copy_tree('MIDI Remote Script', script)
 
 
 
