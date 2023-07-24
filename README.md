@@ -2,7 +2,10 @@
 
 [![Python 3.8](https://img.shields.io/badge/python-3.8-blue.svg)](https://www.python.org/downloads/release/python-360/)
 
+### Confirmed Compatibility:
 
+- MacOS Intel (Big Sur)
+- Ableton Live 11
 
 Livereader is an accessibility tool for Ableton Live. It aims to make Live and Push accessible to those with visual impairments. It does
 this via a custom desktop app, a MIDI remote script and a series of keyboard shortcuts. See [here](keyboard_shortcuts.txt) for a list of a keyboard shortcuts.
@@ -62,8 +65,13 @@ copy_script()
 
 The project is built using PyInstaller, I created a shell script that builds the project with all the necessary data files from [a spec file](main.spec) and then zips it into the [dist](dist) folder.
 
+``` 
+sh build.sh
+```
+
 ### To Do
 
+- MacOS ARM Support
 - Set up automated testing
 - Create a release pipeline
 - Automatic MIDI Remote Script update checking in app from main branch
