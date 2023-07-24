@@ -2,19 +2,24 @@
 
 [![Python 3.8](https://img.shields.io/badge/python-3.8-blue.svg)](https://www.python.org/downloads/release/python-360/)
 
+
+
 Livereader is an accessibility tool for Ableton Live. It aims to make Live and Push accessible to those with visual impairments. It does
 this via a custom desktop app, a MIDI remote script and a series of keyboard shortcuts. See [here](keyboard_shortcuts.txt) for a list of a keyboard shortcuts.
 
 Currently Live reader is MacOS only.
 
-* Note to users/tests
-In it's current state it should be possible to download, set up and access Livereader without the assistance of a sighted user, however, this is still an Alpha release, 
-that is under development, therefor functionality cannot be guaranteed and errors likely WILL happen. It is strongly advised that a blind or visually-impaired user has someone available that is able to help with this.
-Feel free to drop me a message or open an issue if you are actively testing and if I am able assist you I will do so (I can't make any promises here as my time may be limited)
+** Note to users/testers:
 
-## Set up
+In it's current state it should be possible to download, set up and access Livereader without the assistance of a sighted user; however, this is still an Alpha release
+that is under development. Functionality cannot be guaranteed and errors probably WILL happen. It is strongly advised that a blind or visually-impaired user has someone available that is able to help with this.
+Feel free to drop me a message or open an issue if you are actively testing and if I am able assist you I will do so (I can't make any promises here as my time is limited)
 
-- Download the release in the dist folder
+## To get set up
+
+- Download [LiveReader.zip](LiveReader.zip) in the [dist](dist) folder
+- Unzip the app and copy to your applications folder
+- Give the App Accessibility and Input Monitoring permissions in System Preferences > Security & Privacy > Privacy
 - Launch the App
 - Launch Live
 
@@ -40,21 +45,34 @@ pip install -r requirements.txt
 python main.py
 ```
 
-To read the Live logs you can run
+To continuously read the Live logs in your python console
 ```
-python DevTools.py
+from dev_tools import read_log
+read_log("11.3.4") # Takes the live version as an argument
 ```
 
-Any changes to the MIDI remote script will need to be moved into the correct folder
+Any changes to the MIDI remote script will need to be moved into MIDI remote script folder and live to be restarted for changes to take affect:
+
+```
+from dev_tools import copy_script
+copy_script()
+```
+
+### Build
+
+The project is built using PyInstaller, I created a shell script that builds the project with all the necessary data files from [a spec file](main.spec) and then zips it into the [dist](dist) folder.
 
 ### To Do
 
+- Set up automated testing
+- Create a release pipeline
+- Automatic MIDI Remote Script update checking in app from main branch
 - Expand and refine Push functionality
 - Update Keyboard monitoring and SysEx messages to use Bitmasking instead of (1/0) integer arrays
-- Update MIDI remote scripts for keyboard shortcuts
+- Expand MIDI remote scripts for keyboard shortcuts
 - Preferences are not accessible
 - Dialog boxes are not accessible
-- Windows support (Requires some virtual MIDI work, I am currently working on a binding for the virtualMIDI driver by Tobias Erichsen that will make this possible programmatically in Python)
+- Windows support (Requires some virtual MIDI work, I am working on a binding for the virtualMIDI driver by Tobias Erichsen that will make this possible programmatically in Python)
 
 ### Blog
 
