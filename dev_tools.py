@@ -4,21 +4,19 @@ whenever you need to do either action, makes updating the script and bug trackin
 from distutils.dir_util import copy_tree
 from pathlib import Path
 
-def read_log():
-    path = '/Users/josh/Library/Preferences/Ableton/Live 11.0.12/log.txt'
+def read_log(live_version):
+    path = f'/Users/josh/Library/Preferences/Ableton/Live {live_version}/log.txt'
     with open(path, 'r') as f:
         while True:
             line = f.readline()
             if 'RemoteScript' in line:
                 print(line)
 
-def automated_copy():
+def copy_script():
     # Get the home directory and the path to the remote script locations
     home = Path.home()
-    dir = r'{0}/Music/Ableton/User Library/Remote Scripts'.format(home)
-    script = '{0}/MIDI Remote Script'.format(dir)
+    dir = f'{home}/Music/Ableton/User Library/Remote Scripts'
+    script = f'{dir}/MIDI Remote Script'
     # overwrite the script
     copy_tree('MIDI Remote Script', script)
 
-
-read_log()

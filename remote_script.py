@@ -1,11 +1,14 @@
 """This script is for copying the remote scripts folder to the correct place, it will only
-work if the Ableton User Library is contained in the default location of the Music folder. It checks the version of the
-remote script and upates it as necessary."""
+work if the Ableton User Library is contained in the default location of the Music folder."""
 
-
-import os
+import os, sys
 from distutils.dir_util import copy_tree
 from pathlib import Path
+
+try:
+    wd = sys._MEIPASS
+except AttributeError:
+    wd = os.getcwd()
 
 
 def copy():
@@ -17,11 +20,4 @@ def copy():
     if not os.path.exists(dir):
         os.makedirs(dir)
     if not os.path.exists(script):
-        copy_tree('MIDI Remote Script', script)
-
-
-
-
-
-
-
+        copy_tree(f'{wd}/MIDI Remote Script', script)
