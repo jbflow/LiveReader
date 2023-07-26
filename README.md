@@ -2,24 +2,17 @@
 
 [![Python 3.8](https://img.shields.io/badge/python-3.8-blue.svg)](https://www.python.org/downloads/release/python-360/)
 
-### Confirmed Compatibility:
-
-- MacOS Intel (Big Sur)
-- Ableton Live 11
-
-Livereader is an accessibility tool for Ableton Live. It aims to make Live and Push accessible to those with visual impairments. It does
+Livereader is an accessibility tool for Ableton Live. It aims to make Live 11 and Push 2 accessible to those with visual impairments. It does
 this via a custom desktop app, a MIDI remote script and a series of keyboard shortcuts. See [here](keyboard_shortcuts.txt) for a list of keyboard shortcuts.
-
-### Confirmed Compatibility:
-
-- MacOS Intel (Big Sur)
-- Ableton Live 11
-
-** Note to users/testers:
 
 In it's current state it should be possible to download, set up and access Livereader without the assistance of a sighted user; however, this is still an Alpha release
 that is under development. Functionality cannot be guaranteed and errors probably WILL happen. It is strongly advised that a blind or visually-impaired user has someone available that is able to help with this.
 Feel free to drop me a message or open an issue if you are actively testing and if I am able assist you I will do so (I can't make any promises here as my time is limited)
+
+### Confirmed Compatibility:
+
+- MacOS Intel (Big Sur)
+- Ableton Live 11
 
 ## To get set up
 
