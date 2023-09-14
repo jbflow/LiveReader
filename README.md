@@ -16,7 +16,7 @@ Feel free to drop me a message or open an issue if you are actively testing and 
 
 ## To get set up
 
-- Download [LiveReader.zip](LiveReader.zip) in the [dist](dist) folder
+- Download [LiveReader.zip](dist/LiveReader.zip) in the [dist](dist) folder
 - Unzip the app and copy to your applications folder
 - Give the App Accessibility and Input Monitoring permissions in System Preferences > Security & Privacy > Privacy
 - Launch the App
