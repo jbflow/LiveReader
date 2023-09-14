@@ -3,7 +3,7 @@
 [![Python 3.8](https://img.shields.io/badge/python-3.8-blue.svg)](https://www.python.org/downloads/release/python-360/)
 
 Livereader is an accessibility tool for Ableton Live. It aims to make Live 11 and Push 2 accessible to those with visual impairments. It does
-this via a custom desktop app, a MIDI remote script and a series of keyboard shortcuts. See [here](keyboard_shortcuts.txt) for a list of keyboard shortcuts.
+this via a custom desktop app, a MIDI remote script and a series of keyboard shortcuts. See [here](docs/keyboard_shortcuts.txt) for a list of keyboard shortcuts.
 
 In it's current state it should be possible to download, set up and access Livereader without the assistance of a sighted user; however, this is still an Alpha release
 that is under development. Functionality cannot be guaranteed and errors probably WILL happen. It is strongly advised that a blind or visually-impaired user has someone available that is able to help with this.
@@ -59,7 +59,7 @@ copy_script()
 
 ### Build
 
-The project is built using PyInstaller, I created a shell script that builds the project with all the necessary data files from [a spec file](main.spec) and then zips it into the [dist](dist) folder.
+The project is built using PyInstaller, I created a shell script that builds the project with all the necessary data files from [a spec file](scripts/main.spec) and then zips it into the [dist](dist) folder.
 
 ``` 
 sh build.sh
