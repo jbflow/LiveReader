@@ -46,23 +46,23 @@ python main.py
 
 To continuously read the Live logs in your python console
 ```
-from dev_tools import read_log
+from scripts.dev_tools import read_log
 read_log("11.3.4") # Takes the live version as an argument
 ```
 
 Any changes to the MIDI remote script will need to be moved into MIDI remote script folder and live to be restarted for changes to take affect:
 
 ```
-from dev_tools import copy_script
+from scripts.dev_tools import copy_script
 copy_script()
 ```
 
 ### Build
 
-The project is built using PyInstaller, I created a shell script that builds the project with all the necessary data files from [a spec file](scripts/main.spec) and then zips it into the [dist](dist) folder.
+The project is built using PyInstaller, I created a shell script that builds the project with all the necessary data files from [a spec file](main.spec) and then zips it into the [dist](dist) folder.
 
 ``` 
-sh build.sh
+sh scripts/build.sh
 ```
 
 ### To Do

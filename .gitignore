@@ -4,3 +4,4 @@ dist/LiveReader
 dist/LiveReader.app
 .idea
 .venv
+.DS_STORE
