@@ -138,9 +138,10 @@ class PushMonitoringClip(PushMonitoringComponent):
                     note = next(self.generated_notes)
                     self.send_midi(f"note {convert_to_note(note.pitch)}, pad {int((note.start_time * 4) + 1)} across,  {self.component.midi_clip_controller._most_recent_editable_pitches.index(note.pitch) + 1} up")
                 except StopIteration:
-                    self.generated_notes = self.notes_generator()
-                    if len(self.generated_notes) != 0:
-                        self._on_select_button_pressed(value)
+                    pass
+                    # self.generated_notes = self.notes_generator()
+                    # if len(self.generated_notes) != 0:
+                    #     self._on_select_button_pressed(value)
 
 
 

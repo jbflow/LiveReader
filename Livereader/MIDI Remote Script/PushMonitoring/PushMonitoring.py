@@ -8,7 +8,7 @@ from Push2.notification_component import NotificationComponent
 from Push2.scales_component import ScalesComponent
 from ableton.v2.control_surface.mode import ModesComponent
 
-from consts import ROOT_NOTES
+from Livereader.consts import ROOT_NOTES
 
 
 def get_push_component(push, ClassComponent):

@@ -3,7 +3,7 @@
 block_cipher = None
 
 
-a = Analysis(['main.py'],
+a = Analysis(['Livereader/main.py'],
              pathex=['/Users/josh/Projects/LiveReader 2'],
              binaries=[],
              datas=[("MIDI Remote Script", "MIDI Remote Script")],
